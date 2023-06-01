@@ -15,6 +15,7 @@ func main() {
 	var providedKey string
 	var keyMoveInput string
 	var key string
+	var stop string
 	fmt.Print("Would you like to provide a key?[y/n]: ")
 	fmt.Scan(&keyMoveInput)
 	keyMove := strings.ToLower(keyMoveInput)
@@ -38,6 +39,9 @@ func main() {
 	fmt.Scan(&providedKey)
 	fmt.Print("Is this your card? ")
 	fmt.Println(DecryptAES([]byte(providedKey), cipherText))
+	fmt.Println("Type stop or close window to end program after gathering information from above")
+	fmt.Scan(&stop)
+
 }
 
 func generateRandomString(length int) string {
