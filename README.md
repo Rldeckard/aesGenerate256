@@ -1,5 +1,5 @@
 # aesGenerate32
-Small script to generate a private key and encrypt a string with AES. Written in Go.
+Small script to generate a private key and encrypt a string with AES. Written in Go v1.20.2 on Windows 10 21H2 v19044.2604.
 
 You can view the code in the .go file or just download the .exe and run it. It'll spit out your private key that you need to access from your code in some way and the encrypted string
 
