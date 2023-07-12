@@ -8,39 +8,32 @@ import (
 	"encoding/hex"
 	"fmt"
 	"strings"
+
+	"github.com/Rldeckard/sshRunCMD/userPrompt"
 )
 
 func main() {
-	var plainText string
-	var providedKey string
-	var keyMoveInput string
 	var key string
-	var stop string
-	fmt.Print("Would you like to provide a key?[y/n]: ")
-	fmt.Scan(&keyMoveInput)
+	keyMoveInput := prompt.Scan("Would you like to provide a key?[y/n]: ")
 	keyMove := strings.ToLower(keyMoveInput)
 	if keyMove == "n" || keyMove == "no" {
 		//needs a randomly generated 32 character string. Exactly 32 characters. The string is 22 characters, but it's encoded to 32. Confusing.
 		key = generateRandomString(22)
 	} else {
-		fmt.Print("Enter Key: ")
-		fmt.Scan(&key)
+		key = prompt.Scan("Enter Key:")
 	}
 
 	// plaintext
-	fmt.Print("Enter string to encrypt: ")
-	fmt.Scan(&plainText)
+	plainText := prompt.Scan("Enter string to encrypt: ")
 
 	cipherText := EncryptAES([]byte(key), plainText)
 	fmt.Println("Encrypted String: " + cipherText)
 	fmt.Println("Decryption Key (do not lose): " + key)
 	fmt.Println("\nTesting Secret.")
-	fmt.Print("Enter Decryption Key (copy from above): ")
-	fmt.Scan(&providedKey)
+	providedKey := prompt.Scan("Enter Decryption Key (copy from above): ")
 	fmt.Print("Is this your card? ")
 	fmt.Println(DecryptAES([]byte(providedKey), cipherText))
-	fmt.Println("Type stop or close window to end program after gathering information from above")
-	fmt.Scan(&stop)
+	_ = prompt.Scan("Type stop or close window to end program after gathering information from above")
 
 }
 
