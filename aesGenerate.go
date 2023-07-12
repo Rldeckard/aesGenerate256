@@ -21,13 +21,13 @@ func main() {
 	// plaintext
 	plainText := prompt.Scan("Enter string to encrypt: ")
 
-	cipherText := auth32.EncryptAES([]byte(key), plainText)
+	cipherText := auth32.EncryptAES(key, plainText)
 	fmt.Println("Encrypted String: " + cipherText)
 	fmt.Println("Decryption Key (do not lose): " + key)
 	fmt.Println("\nTesting Secret.")
 	providedKey := prompt.Scan("Enter Decryption Key (copy from above): ")
 	fmt.Print("Is this your card? ")
-	fmt.Println(auth32.DecryptAES([]byte(providedKey), cipherText))
+	fmt.Println(auth32.DecryptAES(providedKey, cipherText))
 	_ = prompt.Scan("Type stop or close window to end program after gathering information from above")
 
 }
