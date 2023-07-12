@@ -20,9 +20,9 @@ func Random32bitString() string {
 	return base64.StdEncoding.EncodeToString(b)
 }
 
-func EncryptAES(key []byte, plaintext string) string {
+func EncryptAES(key string, plaintext string) string {
 	// create cipher
-	c, err := aes.NewCipher(key)
+	c, err := aes.NewCipher([]byte(key))
 	fmt.Println("Checking cipher")
 	if err != nil {
 		log.Fatal("Failed to import decryption key.")
@@ -46,10 +46,10 @@ func EncryptAES(key []byte, plaintext string) string {
 	return hex.EncodeToString(cipherText)
 }
 
-func DecryptAES(key []byte, encodedText string) string {
+func DecryptAES(key string, encodedText string) string {
 	ciphertext, _ := hex.DecodeString(encodedText)
 
-	c, err := aes.NewCipher(key)
+	c, err := aes.NewCipher([]byte(key))
 	if err != nil {
 		log.Fatal("Failed to import decryption key.")
 	}
