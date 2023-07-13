@@ -1,5 +1,5 @@
-github.com/Rldeckard/sshRunCMD v1.0.2 h1:6OkC40tCLYbsgRHn2ASjtSgg0F1x/TNioRAvDVw/YDg=
-github.com/Rldeckard/sshRunCMD v1.0.2/go.mod h1:JGS5fu8DA8/mOg8SPbdwF50RJY1nzmr0SKAwXHZZAf0=
+github.com/Rldeckard/sshRunCMD v1.1.0 h1:Sr8k1ae2Hty9GEL6CD8lQChyX8VkfDMen1bHK9oAP/Q=
+github.com/Rldeckard/sshRunCMD v1.1.0/go.mod h1:aKsuZDXSrs9n74YJsoxjVmhVT+5ym8w0rvyqPzEVH44=
 golang.org/x/sys v0.10.0 h1:SqMFp9UcQJZa+pmYuAKjd9xq1f0j5rLcDIk0mj4qAsA=
 golang.org/x/sys v0.10.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/term v0.10.0 h1:3R7pNqamzBraeqj/Tj8qt1aQ2HpmlC+Cx/qL/7hn4/c=

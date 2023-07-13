@@ -27,6 +27,5 @@ func main() {
 	providedKey := prompt.Scan("Enter Decryption Key (copy from above): ")
 	fmt.Print("Is this your card? ")
 	fmt.Println(aes256.Decrypt(providedKey, cipherText))
-	_ = prompt.Scan("Type stop or close window to end program after gathering information from above")
-
+	prompt.Pause()
 }
