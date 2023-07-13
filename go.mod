@@ -1,4 +1,4 @@
-module github.com/Rldeckard/aesGenerate32
+module github.com/Rldeckard/aesGenerate256
 
 go 1.20
 
