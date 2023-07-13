@@ -13,21 +13,20 @@ func main() {
 	keyMoveInput := prompt.Scan("Would you like to provide a key?[y/n]: ")
 	keyMove := strings.ToLower(keyMoveInput)
 	if keyMove == "n" || keyMove == "no" {
-		//needs a randomly generated 32 character string. Exactly 32 characters. The string is 22 characters, but it's encoded to 32. Confusing.
-		key = auth32.Random32bitString()
+		key = aes256.Random32ByteString()
 	} else {
 		key = prompt.Scan("Enter Key:")
 	}
 	// plaintext
 	plainText := prompt.Scan("Enter string to encrypt: ")
 
-	cipherText := auth32.EncryptAES(key, plainText)
+	cipherText := aes256.Encrypt(key, plainText)
 	fmt.Println("Encrypted String: " + cipherText)
 	fmt.Println("Decryption Key (do not lose): " + key)
 	fmt.Println("\nTesting Secret.")
 	providedKey := prompt.Scan("Enter Decryption Key (copy from above): ")
 	fmt.Print("Is this your card? ")
-	fmt.Println(auth32.DecryptAES(providedKey, cipherText))
+	fmt.Println(aes256.Decrypt(providedKey, cipherText))
 	_ = prompt.Scan("Type stop or close window to end program after gathering information from above")
 
 }
