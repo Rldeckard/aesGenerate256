@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Rldeckard/aesGenerate32/authGen"
+	"github.com/Rldeckard/aesGenerate256/authGen"
 	"github.com/Rldeckard/sshRunCMD/userPrompt"
 )
 
