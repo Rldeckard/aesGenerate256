@@ -1,4 +1,4 @@
-package auth32
+package aes256
 
 import (
 	"crypto/aes"
@@ -10,7 +10,9 @@ import (
 	"log"
 )
 
-func Random32bitString() string {
+// Generates a random string to use as an AES key. These keys need to be exactly 32 characters long and it's done as a string to be stored in plaintext.
+func Random32ByteString() string {
+	//needs a randomly generated 32 character string. Exactly 32 characters. The string is 22 characters, but it's encoded to 32.
 	b := make([]byte, 22)
 	_, err := rand.Read(b)
 
@@ -20,7 +22,8 @@ func Random32bitString() string {
 	return base64.StdEncoding.EncodeToString(b)
 }
 
-func EncryptAES(key string, plaintext string) string {
+// Used to encrypt a provided string using a provided key string. It's converted to a []byte within the program for processing.
+func Encrypt(key string, plaintext string) string {
 	// create cipher
 	c, err := aes.NewCipher([]byte(key))
 	fmt.Println("Checking cipher")
@@ -46,7 +49,9 @@ func EncryptAES(key string, plaintext string) string {
 	return hex.EncodeToString(cipherText)
 }
 
-func DecryptAES(key string, encodedText string) string {
+// Used to decrypt a provided string that was previously created with aes256.Encrypt().
+// This function processes hex encoded stirngs so it should work with any secret as long as it's hex encoded.
+func Decrypt(key string, encodedText string) string {
 	ciphertext, _ := hex.DecodeString(encodedText)
 
 	c, err := aes.NewCipher([]byte(key))
