@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Rldeckard/aesGenerate256/authGen"
-	"github.com/Rldeckard/sshRunCMD/userPrompt"
+	"github.com/neteng-tools/aesGenerate256"
+	"github.com/neteng-tools/cliPrompt"
 )
 
 func main() {
